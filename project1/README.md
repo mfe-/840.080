@@ -24,3 +24,6 @@ Team-Bewertung:
 - Code-Qualität (Leserlichkeit etc.): 2 P
 - Gut strukturierte Daten / gute Abdeckung des relevanten Regelwerkes? 3 P
 - Der Code gibt erwartete Ergebnisse / keine groben Bugs: 3 P
+
+
+clinical reasoning cycle
