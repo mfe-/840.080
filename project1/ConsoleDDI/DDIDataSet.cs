@@ -1,6 +1,9 @@
-﻿namespace ConsoleDDI
+﻿using System.Diagnostics;
+
+namespace ConsoleDDI
 {
-    internal class DDIDataSet
+    [DebuggerDisplay("Drug={Object}, Precipitant={Precipitant}")]
+    internal class DrugDataSet
     {
         public string Drug1 { get; set; }
         public string Object { get; set; }
