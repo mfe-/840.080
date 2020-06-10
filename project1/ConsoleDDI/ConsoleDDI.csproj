@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <TargetFrameworks>netcoreapp3.1;</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
