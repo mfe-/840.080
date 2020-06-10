@@ -3,7 +3,7 @@
 Personen die mehrere Medikamente einnehmen, müssen auf mögliche Wechselwirkungen mit anderen Arzneimittel achten.
 Welche Medikamente zusammen eingenommen werden dürfen, kann qualifiziertes Apotheker- oder Ärztepersonal entscheiden.
  
-Für Anwender_innen die zu mehreren Tageszeiten Medikamente einnehmen müssen, wie z.B. ältere Personengruppen, kann eine App Überblick und Sicherheit verschaffen, wann welche und wieviel Medikamente eingenommen wurden. Sollten die Personen ein neues Medikament einnehmen müssen, kann eine App weiters auf mögliche Wechselwirkungen hinweisen und Alternativen anbieten. 
+Für Anwender_innen die zu mehreren Tageszeiten Medikamente einnehmen müssen, wie z.B. ältere Personengruppen, kann eine App Überblick und Sicherheit verschaffen, wann, welche und wieviele Medikamente eingenommen wurden. Sollten die Personen ein neues Medikament einnehmen müssen, kann eine App weiters auf mögliche Wechselwirkungen hinweisen und Alternativen anbieten. 
 Eine solche App soll in diesem Projekt als Prototyp entworfen werden.
 Letzendlich soll die App so konzipiert sein, dass sie lediglich zusätzliche Informationen anbietet und nicht entsprechendes Fachpersonal ersetzt. Die Zielgruppe sind somit Patient_innen. 
 
