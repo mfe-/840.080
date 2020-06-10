@@ -1,4 +1,5 @@
 ﻿
+using DDILibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,14 +18,19 @@ namespace ConsoleDDI
             string file = "CombinedDatasetConservativeTWOSIDES.csv";
 
             FileInfo fileInfo = new FileInfo(file);
-            if (!fileInfo.Exists) throw new FileNotFoundException($"Please copy the file {file} to {Environment.CurrentDirectory}", file);
+            if (!fileInfo.Exists)
+            {
+                while (!new FileInfo(file).Exists)
+                {
+                    Console.WriteLine($"Error: Missing file {file}.{Environment.NewLine}Please copy {file} {Environment.NewLine}to: {Environment.CurrentDirectory}{Environment.NewLine}and Press Enter to continiue.");
+                    Console.ReadLine();
+                }
+            }
 
-            CsvParserOptions csvParserOptions = new CsvParserOptions(true, '\t');
-            DrugDataSetMapping csvMapper = new DrugDataSetMapping();
-            CsvParser<DrugDataSet> csvParser = new CsvParser<DrugDataSet>(csvParserOptions, csvMapper);
+            DrugInteractionService drugInteractionService = new DrugInteractionService(fileInfo.FullName);
 
             Console.WriteLine("Loading data");
-            List<DrugDataSet> drugDataSets = csvParser.ReadFromFile(file, Encoding.ASCII).Select(a => a.Result).ToList();
+            //List<DrugDataSet> drugDataSets = csvParser.ReadFromFile(file, Encoding.ASCII).Select(a => a.Result).ToList();
 
             Console.WriteLine("Please enter your drug!");
             List<DrugDataSet> usedDrugs = new List<DrugDataSet>();
@@ -39,7 +45,8 @@ namespace ConsoleDDI
                     break;
                 }
 
-                DrugDataSet drugDataSet = drugDataSets.FirstOrDefault(a => a.Object.ToLowerInvariant().Contains(line));
+                DrugDataSet? drugDataSet = drugInteractionService.FindDrug(line);
+
                 if (drugDataSet == null)
                 {
                     Console.WriteLine("Drug not found, try a new one or abort by pressing enter.");
@@ -63,49 +70,16 @@ namespace ConsoleDDI
                 }
             }
             Console.WriteLine("Drug Drug interaction check");
+
+            var warnings = drugInteractionService.AreDrugsInteracting(usedDrugs);
+
             //check drug interactions
-            foreach (var drug in usedDrugs)
+            foreach (var warning in warnings)
             {
-                IEnumerable<DrugDataSet> possiblePrecipitant = usedDrugs.Where(a => a.Precipitant.ToLowerInvariant().Contains(drug.Object.ToLowerInvariant()));
-                if (possiblePrecipitant.Any())
-                {
-                    Console.WriteLine($"{drug.Object} precipitant with {string.Join(", ", possiblePrecipitant.Select(a => a.Object))}");
-                }
+                Console.WriteLine(warning);
 
             }
 
-        }
-        public class DrugDataSetMapping : CsvMapping<DrugDataSet>
-        {
-            public DrugDataSetMapping() : base()
-            {
-                MapProperty(0, x => x.Drug1);
-                MapProperty(1, x => x.Object);
-                MapProperty(2, x => x.Drug2);
-                MapProperty(3, x => x.Precipitant);
-                //MapProperty(4, x => x.Certainty);
-                //MapProperty(5, x => x.Contraindication);
-                //MapProperty(6, x => x.DateAnnotated);
-                //MapProperty(7, x => x.DdiPkEffect);
-                //MapProperty(8, x => x.DdiPkMechanism);
-                //MapProperty(9, x => x.EffectConcept);
-
-                //MapProperty(10, x => x.Homepage);
-                MapProperty(11, x => x.Label);
-                //MapProperty(12, x => x.NumericVal);
-                MapProperty(13, x => x.ObjectUri);
-                MapProperty(14, x => x.Pathway);
-
-                MapProperty(15, x => x.Precaution);
-                MapProperty(16, x => x.PrecipUri);
-                MapProperty(17, x => x.Severity);
-                MapProperty(18, x => x.Uri);
-                MapProperty(19, x => x.WhoAnnotated);
-                MapProperty(20, x => x.Source);
-                MapProperty(21, x => x.DdiType);
-                MapProperty(22, x => x.Evidence);
-
-            }
         }
     }
 }

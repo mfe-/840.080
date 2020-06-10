@@ -1,14 +1,17 @@
-﻿using System.Diagnostics;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 
-namespace ConsoleDDI
+namespace DDILibrary
 {
     [DebuggerDisplay("Drug={Object}, Precipitant={Precipitant}")]
-    internal class DrugDataSet
+    public class DrugDataSet
     {
         public string Drug1 { get; set; }
         public string Object { get; set; }
         public string Drug2 { get; set; }
         public string Precipitant { get; set; }
+        public IEnumerable<DrugDataSet> DrugInteractionList { get; set; }
         public string Certainty { get; set; }
         public string Contraindication { get; set; }
         public string DateAnnotated { get; set; }
