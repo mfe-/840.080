@@ -1,11 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:DDIApp"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DDIApp.Models"
              x:Class="DDIApp.Views.MainPage"
-             Title="{Binding Title}">
-
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+             x:Name="mainPage"
+             Title="{Binding Title,Mode=TwoWay}" Padding="0, 0, 0, 20 ">
+    <ContentPage.Resources>
+        <local:DebugConverter x:Key="DebugConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="5, 1, 0, 0 ">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                <!-- top controls -->
+                <Label Text="Welcome to Xamarin Forms and Prism!" />
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <!-- middle controls -->
+                <ListView ItemsSource="{Binding Drugs,Converter={StaticResource DebugConverter}}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Command="{Binding Path=BindingContext.NavigateToDrugCommand,Source={x:Reference mainPage}}" 
+                                            CommandParameter="{Binding}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding Name}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="End">
+                <!-- bottom controls -->
+                <Button Text="Take Pill" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding Path=NavigateToCommand}" CommandParameter="TakePillPageViewModel" />
+                <Button Text="Add Medicine" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding Path=NavigateToCommand}" CommandParameter="AddMedicinePageViewModel" />
+                <Button Text="Check Drug Interaction" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding Path=NavigateToCommand}" CommandParameter="CheckDrugInteractionPageViewModel" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>

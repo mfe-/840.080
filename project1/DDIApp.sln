@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDIApp", "DDIApp\DDIApp.csproj", "{802E3382-4D86-4B7C-906C-DC85C239EABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDIApp", "DDIApp\DDIApp.csproj", "{802E3382-4D86-4B7C-906C-DC85C239EABD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDIApp.Android", "DDIApp.Android\DDIApp.Android.csproj", "{D22B489D-9DE7-4FEF-A2D8-4F7F567C27B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDIApp.UWP", "DDIApp.UWP\DDIApp.UWP.csproj", "{2344B9A3-B755-4BA8-93CC-273F79027FDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDILibrary", "DDILibrary\DDILibrary.csproj", "{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,22 @@ Global
 		{2344B9A3-B755-4BA8-93CC-273F79027FDF}.Release|x86.ActiveCfg = Release|x86
 		{2344B9A3-B755-4BA8-93CC-273F79027FDF}.Release|x86.Build.0 = Release|x86
 		{2344B9A3-B755-4BA8-93CC-273F79027FDF}.Release|x86.Deploy.0 = Release|x86
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|x64.Build.0 = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Debug|x86.Build.0 = Debug|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|ARM.Build.0 = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|x64.ActiveCfg = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|x64.Build.0 = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|x86.ActiveCfg = Release|Any CPU
+		{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

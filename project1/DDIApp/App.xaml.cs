@@ -1,9 +1,10 @@
-using Prism;
-using Prism.Ioc;
 using DDIApp.ViewModels;
 using DDIApp.Views;
-using Xamarin.Essentials.Interfaces;
+using DDILibrary;
+using Prism;
+using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,15 +26,25 @@ namespace DDIApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync($"NavigationPage/{nameof(MainPageViewModel)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
+            DrugService drugService = new DrugService();
+            drugService.LoadDrugs();
+
+            containerRegistry.RegisterInstance(drugService);
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>(nameof(MainPageViewModel));
+            containerRegistry.RegisterForNavigation<CheckDrugInteractionPage, CheckDrugInteractionPageViewModel>(nameof(CheckDrugInteractionPageViewModel));
+            containerRegistry.RegisterForNavigation<AddMedicinePage, AddMedicinePageViewModel>(nameof(AddMedicinePageViewModel));
+            containerRegistry.RegisterForNavigation<TakePillPage, TakePillPageViewModel>(nameof(TakePillPageViewModel));
+            containerRegistry.RegisterForNavigation<DrugPage, DrugPageViewModel>(nameof(DrugPageViewModel));
+
         }
     }
 }
