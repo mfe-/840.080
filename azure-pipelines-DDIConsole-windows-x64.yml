@@ -18,20 +18,20 @@ steps:
   displayName: build solution release
   inputs:
     command: 'build'
-    projects: 'project1/ConsoleDDI/ConsoleDDI.sln'
-    arguments: '--configuration=Release --verbosity=n'
+    projects: 'project1/DDIConsole.sln'
+    arguments: '--runtime win-x64 --configuration=Release --verbosity=n'
 
 - task: DotNetCoreCLI@2
-  displayName: 'creating ConsoleDDI in $(build.artifactstagingdirectory)'
+  displayName: 'creating DDIConsole in $(build.artifactstagingdirectory)'
   inputs:
     command: 'publish'
     publishWebProjects: false
     arguments: '-r win-x64 -c debug --no-restore /p:PublishSingleFile=true -o $(build.artifactstagingdirectory)'
-    workingDirectory: 'project1/ConsoleDDI'
+    workingDirectory: 'project1/DDIConsole'
 
 - task: PublishBuildArtifacts@1
   condition: succeededOrFailed()
   displayName: "Upload Artifacts"
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'ConsoleDDI' 
+    artifactName: 'DDIConsole-windows-x64' 

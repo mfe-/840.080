@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDIConsole", "DDIConsole\DDIConsole.csproj", "{538DE9F4-6F90-4E20-B4A6-CC85A02A5D95}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDILibrary", "DDILibrary\DDILibrary.csproj", "{1135FB0C-10D0-4974-9847-4F9F9499B4D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{538DE9F4-6F90-4E20-B4A6-CC85A02A5D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538DE9F4-6F90-4E20-B4A6-CC85A02A5D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538DE9F4-6F90-4E20-B4A6-CC85A02A5D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538DE9F4-6F90-4E20-B4A6-CC85A02A5D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1135FB0C-10D0-4974-9847-4F9F9499B4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1135FB0C-10D0-4974-9847-4F9F9499B4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1135FB0C-10D0-4974-9847-4F9F9499B4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1135FB0C-10D0-4974-9847-4F9F9499B4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8605A34B-BA44-4058-8F70-0388912C66FF}
+	EndGlobalSection
+EndGlobal
