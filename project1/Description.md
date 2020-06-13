@@ -22,7 +22,9 @@ issue #2 Übersicht zu den in Frage kommenden Datenquellen und Vergleich, Erklä
 Heutzutage nehmen die Menschen verschiedene Medikamente gegen ihre unterschiedlichen Krankheiten. Manche Patienten wie alte Personen müssen täglich mehrere Medikamente einnehmen. Hier muss man beachten, dass sie je mehr Medikamente einnehmen, desto größer wird die Wahrscheinlichkeit, dass ihr Medikament mit einem anderen Medikament interagiert. Ein DDI Tool ist hier sehr hilfreich. Diese Interaktionen können die Wirksamkeit der Medikamente verringern, geringfügige oder schwerwiegende unerwartete Nebenwirkungen verstärken oder sogar den Blutspiegel und die mögliche Toxizität eines bestimmten Arzneimittels erhöhen. Deswegen ist ein DDI Tool hier sehr hilfreich, um diese Wirkungen zu reduzieren.
 
 ### 1.4.1 Alert Fatigue 
-`Wie kann Alert Fatigue vermieden werden, ohne wirklich wichtige Alerts unter den Tisch fallen zu lassen? `
+Alert Fatigue tritt auf, wenn man einer großen Anzahl häufiger Alarme ausgesetzt ist und folglich für diese desensibilisiert wird. Desensibilisierung kann zu längeren Reaktionszeiten oder zum Fehlen wichtiger Alarme führen. Alert Fatigue tritt in vielen Branchen auf, einschließlich im Gesundheitswesen, wo elektronische Monitore klinische Informationen wie Vitalfunktionen und Blutzuckeralarme so häufig und häufig aus so geringen Gründen verfolgen, dass sie die Dringlichkeit und Aufmerksamkeit verlieren, die sie haben sollen. 
+
+Wir versuchen eine einfache und user-friendly App zu schaffen. Bei unserer App geben wir die Kontrolle zu dem User, die Alarms zu setzen Eine zusätzliche Warnung geben wir nur, wenn unser Algorithmus eine Wechselwirkung entgegenkommt und es keine Alternative findet. 
 
 ### 1.4.2 Zielgruppe und Benutzerbindung
 
@@ -46,13 +48,10 @@ Wir haben als Team unsere Zielgruppen als alle PatientInnen entschieden. Wir wis
 
 ### 1.4.3 Recommendations 
 
-recommendations: alternativen Wirkstoff bei DDI vorschlagen, bei alert Arzt Fragen oder Apothekennummer anzeigen,
-
-`Welche Recommendations sollte ein solches Tool machen? `
+Ein DDI Tool soll den User die wichtigen Informationen über die Medikamente und die Wechselwirkungen zeigen. Wenn es eine Wechselwirkung eintritt, soll es diese zeigen und zusätzlich den alternativen Wirkstoffe empfehlen. Der User soll Medikamenten in DDI prüfen können, seine eigenen Medikamente in der App speichern und addieren/entfernen. Bei einerm Alert kann der Patient seinen Arzt fragen oder die Apothekennummer anzeigen.
 
 ### 1.4.4 Zugang
-
-`Wie würde das Tools am besten verfügbar gemacht (App, Internet, installierte Applikation, Integration in EHR / ePrescribing?)`
+Am besten wäre das DDI-Tool in allen Plattformen verfügbar, wie zum Beispiel auf mobil App Stores, als Desktop Applikation, über Internet (Webseite), usw. Electronic prescribing ist eine sehr schöne Alternative, denn es beschreibt die Möglichkeit, fehlerfreie, genaue und verständliche Rezepte elektronisch vom Gesundheitsdienstleister an die Apotheke zu senden. Mit diesem Weg kann man am Beginn die Wechselwirkungen vermeiden. Also, es reduziert solche Risiken. Aber wir wollen die Patienten und andere Menschen diese Tools auch verwenden, deswegen finden wir eine mobile Applikation besser.
 
 ## 2. Anforderungen an Prototyp
 
