@@ -17,6 +17,21 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 issue #2 Übersicht zu den in Frage kommenden Datenquellen und Vergleich, Erklärung für letztendliche Auswahl der Datenquelle für die Applikation: 2 P
 
+TODO
+
+To assist clinicians in identifying risks associated with the combined use of two drugs, drug-interaction books and searchable drug-interaction databases are available. 
+https://www.sciencedirect.com/topics/immunology-and-microbiology/drug-drug-interaction
++ drug-interaction databases
++ FDA  https://www.fda.gov/media/92328/download
++drup interaction api  https://rxnav.nlm.nih.gov/InteractionAPIs.html#
++wikidata
++ drug interaction solution  https://www.druginteractionsolutions.org/solutions/drug-interaction-database/
++UK international https://www.drugs.com/uk/ 	
+Alert, Drug Interaction Databases: https://www.uspharmacist.com/article/computerized-clinical-decision-support-and-drug-interaction-databases
+
+
+
+
 ## 1.4 DDI Kriterien
 
 Heutzutage nehmen die Menschen verschiedene Medikamente gegen ihre unterschiedlichen Krankheiten. Manche Patienten wie alte Personen müssen täglich mehrere Medikamente einnehmen. Hier muss man beachten, dass sie je mehr Medikamente einnehmen, desto größer wird die Wahrscheinlichkeit, dass ihr Medikament mit einem anderen Medikament interagiert. Ein DDI Tool ist hier sehr hilfreich. Diese Interaktionen können die Wirksamkeit der Medikamente verringern, geringfügige oder schwerwiegende unerwartete Nebenwirkungen verstärken oder sogar den Blutspiegel und die mögliche Toxizität eines bestimmten Arzneimittels erhöhen. Deswegen ist ein DDI Tool hier sehr hilfreich, um diese Wirkungen zu reduzieren.
