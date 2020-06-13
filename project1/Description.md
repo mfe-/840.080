@@ -19,7 +19,7 @@ issue #2 Übersicht zu den in Frage kommenden Datenquellen und Vergleich, Erklä
 
 ## 1.4 DDI Kriterien
 
-Was macht das ideale DDI Tool aus?
+Heutzutage nehmen die Menschen verschiedene Medikamente gegen ihre unterschiedlichen Krankheiten. Manche Patienten wie alte Personen müssen täglich mehrere Medikamente einnehmen. Hier muss man beachten, dass sie je mehr Medikamente einnehmen, desto größer wird die Wahrscheinlichkeit, dass ihr Medikament mit einem anderen Medikament interagiert. Ein DDI Tool ist hier sehr hilfreich. Diese Interaktionen können die Wirksamkeit der Medikamente verringern, geringfügige oder schwerwiegende unerwartete Nebenwirkungen verstärken oder sogar den Blutspiegel und die mögliche Toxizität eines bestimmten Arzneimittels erhöhen. Deswegen ist ein DDI Tool hier sehr hilfreich, um diese Wirkungen zu reduzieren.
 
 ### 1.4.1 Alert Fatigue 
 `Wie kann Alert Fatigue vermieden werden, ohne wirklich wichtige Alerts unter den Tisch fallen zu lassen? `
@@ -36,7 +36,13 @@ Aufgrund dessen sollte die App einfach zu bedienen sein. So könnte das hinzufü
 
 Eine höhere Benutzerbindung kann mit einer einfachen Bedingung der App und mittels Gamification erreicht werden. 
 
-`Wie können Benutzer möglichst motiviert werden, solche Tools sinnvoll zu verwenden? Für welche Personengruppen sollen solche Tools verfügbar gemacht werden, und wie? -> `
+### 1.4.2.1 Motivation für die Zielgruppe
+
+Menschen, die mehrere Medikamente einnehmen sollen, sind unter dem größten Risiko für Wechselwirkungen ausgesetzt. Arzneimittelwechselwirkungen tragen aufgrund der Kosten für die medizinische Versorgung, die zur Behandlung von Problemen erforderlich sind, die durch Änderungen der Wirksamkeit oder Nebenwirkungen verursacht werden, zu den Kosten der Gesundheitsversorgung bei. Interaktionen können auch zu psychischem Leiden führen, das vermieden werden kann. Menschen sollen sich für ihre physische und auch psychische Gesundheit schützen und damit können Sie manche Gesundheitsausgabenvermeiden.
+
+### 1.4.2.2 Für welche Personengruppen sollen solche Tools verfügbar gemacht werden?
+
+Wir haben als Team unsere Zielgruppen als alle PatientInnen entschieden. Wir wissen, dass viele Menschen jeder Alter verschiedene Medikamente einnehmen sollen. Sie können sehr schnell mit einer Applikation die Interaktionen schauen, neue Medikamente addieren und ein Alarm dafür einstellen. Unser App kann jeder verwenden z.B. Angestellte im Gesundheitssektor, Studenten, Akademiker aber unsere vorrangige Zielgruppe ist die Patienten, wer die App am meisten benutzen müssen.
 
 ### 1.4.3 Recommendations 
 
