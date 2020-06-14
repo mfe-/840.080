@@ -1,13 +1,11 @@
 # Drug-drug interaction Tool (DDI)
 
-## 1. Drug-drug interaction Tool
+## 1. Einführung
 
 Personen, die mehrere Medikamente einnehmen, müssen auf mögliche Wechselwirkungen mit anderem Arzneimittel achten.
 Welche Medikamente zusammen eingenommen werden dürfen, kann qualifiziertes Apotheker- oder Ärztepersonal entscheiden.
  
 Für AnwenderInnen, die zu mehreren Tageszeiten Medikamente einnehmen müssen, wie z.B. ältere Personengruppen, kann eine App Überblick und Sicherheit verschaffen, wann, welche und wie viele Medikamente eingenommen wurden. Sollten die Personen ein neues Medikament einnehmen müssen, kann eine App weiters auf mögliche Wechselwirkungen hinweisen und Alternativen anbieten. Eine solche App soll in diesem Projekt als Prototyp entworfen werden.
-
-Letztendlich soll die App so konzipiert sein, dass sie lediglich zusätzliche Informationen anbietet und nicht entsprechendes Fachpersonal ersetzt. Die Zielgruppe sind somit Patientinnen. 
 
 ## 1.2 Drug-drug interaction Tool
 
@@ -17,13 +15,10 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 #### CSV File von 
 
-die csv hat 1,010,178 einträge. Wenn man aber auf die einzellenn medikamente gruppiert umfasst der datensatz allerdings nur 1793 drug einträge.
+Im Paper "Toward a complete dataset of drug–drug interaction informationfrom publicly available sources" wird das Zustandekommen der in diesem Projekt verwendeten Datenquelle erläutert. Aus Insgesamt 14 unterschiedlichen Quellen wurden Datensätze zusammengesetzt. Die CSV Datei kommt auf 1,010,178 Einträge. Wenn man auf die einzelnen Medikamente gruppiert umfasst der Datensatz 1793 eindeutige Datensätze.
+Ein wesentliches Argument, welches für die Verwendung der CSV Datei gesprochen hat, waren die evidenzbasierten Rohdaten und die Möglichkeit der einfachen Verarbeitung. Die CSV Datei kann so mithilfe einer "CSV-Parser" Bibliothek relativ rasch eingelesen und verarbeitet werden. Einzig die große Datenmenge macht bei den Mobilgeräten Probleme. Die Idee war, zuerst mit der CSV Datei zu arbeiten und später falls notwendig diese in eine SQLite-Datenbank zu importieren. Notfalls wäre es immer noch möglich gewesen die Datenabfrage in einen separaten Webservice zu verschieben.
+Auffällig war, dass viele Felder der CSV Datei nicht gesetzt bzw. mit einem Standardwert versehen war, weil diese eben aus verschiedenen Datenquellen zusammengeführt wurden. So kann es sein, dass sich Gruppierte Datensätze nur in einzelnen Feldern voneinander unterschieden.
 
-Im datensatz sind auch nicht immer alle Felder gesetzt.
-je nach dem aus welcher datenquelle die daten stammen ist das feld befüllt oder nicht. 
-So fehlen z.B. größtenteils informationen zu serverity (Es gibt 12.201 Einträge in denen die Serverity gesetzt ist).
-Auch fehlt öfters der wert des feldes "label" in dem u.a. eine textuelle beschreibung zu den interaction zu finden ist. 888.265 mal ist kein wert hinterlegt worden oder anders formuliert es gibt für 121.913 einträge einen wert.
-Die Information vom feld Label und Serverity sind für die behandlung von alert fatigue wichtig. Da die werte aber so oft fehlen müssen andere mechanismen angewand werden um diesem problem zu begenen.
  
 #### Wikidata
 
