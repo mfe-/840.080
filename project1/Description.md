@@ -27,20 +27,20 @@ Die Information vom feld Label und Serverity sind für die behandlung von alert 
  
 #### Wikidata
 
-Wikidata ist eine der berühmteste Dataquellen. Was wir über Wikidata sagen können ist, dass Wikidata als zentraler Speicher für die strukturierten Daten seiner Wikimedia-Schwesterprojekte einschließlich Wikipedia fungiert. Es hat mehr als 46 Million Datenelemente in seiner Datenbank. Mehr als 50.000 Elemente sind nur über Medikamente. Entsprechend der Mission von Wikimedia kann jedes Daten hinzufügen, bearbeiten und kostenlos verwenden. Es kann als einen Nachteil sehen, aber das hilft die Vergrößerung der Datenbank. Aber dieser Plattform hat mehrere Vorteile:
+Wikidata ist eine der berühmteste Dataquellen. Was wir über Wikidata sagen können ist, dass Wikidata als zentraler Speicher für die strukturierten Daten seiner Wikimedia-Schwesterprojekte einschließlich Wikipedia fungiert. Es hat mehr als 46 Million Datenelemente in seiner Datenbank. Mehr als 50.000 Elemente sind nur über Medikamente. Entsprechend der Mission von Wikimedia kann jedes Daten hinzufügen, bearbeiten und kostenlos verwenden. Es kann als einen Nachteil aussehen, aber das hilft die Verbreitung der Datenbank in allen Bereichen. Zum Gegensatz dazu hat dieser Plattform mehrere Vorteile:
 
 -	Es ist eine kostenlose und offene Wissensdatenbank, die sowohl von Menschen als auch von Maschinen gelesen und bearbeitet werden kann
 -	Es enthält verschiedene Datentypen (z. B. Text, Bilder, Mengen, Koordinaten, geografische Formen, Daten)
 -	Es verwendet SPARQL
 
-Besonders der letzte Aspekt erlaubt mit einer Query nach unserer Fragen zu suchen. SPARQL ist eine Abfragesprache für RDF-Datenbanken. Im Gegensatz zu relationalen Datenbanken wie SQL sind Elemente nicht ein Teil einer Tabelle. Stattdessen werden Elemente wie ein Diagramm oder ein Netzwerk miteinander verknüpft, was schnelle Suche eins Elements ermöglicht. Ein Beispiel Query für die Interaktionen eines Drugs (Carbonic anhydrase 1) mit Drug code Q21173164:
+Besonders der letzte Aspekt erlaubt mit einer Query nach unserer Fragen zu suchen. SPARQL ist eine Abfragesprache für RDF-Datenbanken. Im Gegensatz zu relationalen Datenbanken wie SQL sind Elemente nicht ein Teil einer Tabelle. Stattdessen werden Elemente wie ein Diagramm oder ein Netzwerk miteinander verknüpft, was schnelle Suche eines Datenelements ermöglicht. Ein Beispiel Query für die Interaktionen eines Drugs (Carbonic anhydrase 1) mit Drug code Q21173164 wäre folgendes:
 
 ```
 SELECT ?medication ?MedicationLabel 
 WHERE
 {
-  ?medication wdt:P129 wd:Q21173164.   Suche Interaktionen der Medikament
- SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }  print Drugs code mit ihrem Label
+ ?medication wdt:P129 wd:Q21173164.   --> Search interactions (P129) of the medication (Q21173164)
+ SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } --> prints Drug codes whit its label
 }  
 ```
 
