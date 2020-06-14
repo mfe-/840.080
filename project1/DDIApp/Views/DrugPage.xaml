@@ -13,6 +13,7 @@
             <ListView ItemsSource="{Binding Path=Drug.Taken,Mode=TwoWay}">
                 
             </ListView>
+            <Button Text="Add Alarm" />
             <Button Text="Remove this Drug" Command="{Binding Path=RemoveCommand}" 
                     CommandParameter="{Binding Path=Drug}" />
         </StackLayout>
