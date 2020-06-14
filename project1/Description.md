@@ -145,14 +145,20 @@ Ganz unten am Ende der Medikamentenauflistung Button mit "Take Pill(s)"
 Unter "Take Pill(s)" einen weiteren Button mit "Medikament hinzufügen"
 Unter ""Medikament hinzufügen" ein weiterer Button mit "Medikamenten Wechselwirkungen prüfen" (Anforderung 1.1.4 DDI )
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Start.png)
+
 ### 3.2.2 Medikamentenauflistung (Startscreen)/Medikamentendetails
 
 Tappt man auf ein Medikament aus Screen 2.2.1 kommt man auf diesen Screen. Hier kann man alle weiteren Details zum Medikament eingeben.
 Wann man wieviel einnehmen muss; Alarm setzen (neuer Screen); Zusatzinformationen aus dem Internet (siehe Anforderung 1.1.2) Medikament löschen;
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Details.png)
+
 ### 3.2.3 Medikamentenauflistung (Startscreen)/Medikamentendetails/Alarm
 
 Alarm(e) festlegen für Medikament
+
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Alarms.png)
 
 ### 3.2.4 Medikamentenauflistung (Startscreen)/Take Pill(s)
 
@@ -161,6 +167,7 @@ Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätz
 ### 3.2.5 Medikamentenauflistung (Startscreen)/Medikament hinzufügen
 
 Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinweis für "Wechselwirkung" dargestellt sein; mögliche Alternativen;
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/add-drug.png)
 
 
 ## Requirements
