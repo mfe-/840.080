@@ -177,6 +177,39 @@ Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinw
 ![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/add-medicine3.jpg)
 
 
-## Requirements
+## Abgabeinformation
 
-1. https://visualstudio.microsoft.com/de/xamarin/
+Der komplette Source vom Projekt kann unter [https://github.com/mfe-/840.080](https://github.com/mfe-/840.080) heruntergeladen werden.
+Die Aufgaben wurden mittels [Issues](https://github.com/mfe-/840.080/issues?q=is%3Aissue+is%3Aclosed) aufgeteilt. Wer was gemacht hat sieht man dort.
+
+Entstanden ist ein Prototyp bestehend aus:
+
+1. Konsolen App (.NetCore)
+2. Xamarin.Forms (Android und UWP (Windows 10))
+
+Das Parsen der CSV File am mobilen Gerät ist noch nicht performant genug - die Android App reagiert beim hinzufügen eher schlecht.
+Bei der UWP App ist es ein bisschen besser. 
+
+Installation der Konsolen App
+1. .Net Core SDK herunterladen
+2. dotnet build und die Solution der Konsole als parameter angeben (siehe auch .yaml file)
+
+Installation der UWP App
+1. https://1drv.ms/u/s!AvDigRAKLQinorkmGvMDpJkWcNhkmw?e=gLKRbl uwp zip package
+2. Unzippen
+3. Powershell im extrahierten Folder starten
+4. Skript Add-AppDevPackage.ps1 starten
+5. Diese sollte u.a. das Dev Zertifikat in den Cer. Store installieren (dafür braucht man admin rechte)
+6. Danach sollten auto. die Dependecies installiert werden
+7. Beim Hinzufügen einer Drug gibt man als erstes einen anfangsnamen ein. Im hintergrund lauft ein Job der ständig die csv file nach ähnlichen namen sucht. man muss also ein bisschen warten. Danach aus den Ergebnisen eine Drug auswählen. Add Klicken. Warten (Hier fehlt leider noch der loading indicator)
+
+### Requirements
+
+1. Visual Studio 2019 mit Xamarin.Forms und .NetCore SDK für Consolen App
+2. Die File CombinedDatasetConservativeTWOSIDES.csv ist im .gitignore und muss unter umständen manuell nach kopiert werden
+   1. z.B. nach project1/DDIApp.UWP/Assets
+   2. project1/DDIApp.Android/Assets
+   3. ins bin verzeichnis wo die KonsolenApp ausgeführt wird
+   
+https://1drv.ms/u/s!AvDigRAKLQinorkn3qseA7_NdnVjzQ?e=ZtHdUw android bin zip
+
