@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TinyCsvParser;
 using TinyCsvParser.Mapping;
 
@@ -26,14 +27,24 @@ namespace ConsoleDDI
                     Console.ReadLine();
                 }
             }
+            while (true)
+            {
+                DrugDrugInteractionCheck(fileInfo);
+                Console.WriteLine("Start again? [y/n]");
+                string yes = Console.ReadLine();
+                if ("y" != yes)
+                {
+                    break;
+                }
+            }
+        }
 
+        private static void DrugDrugInteractionCheck(FileInfo fileInfo)
+        {
             DrugInteractionService drugInteractionService = new DrugInteractionService(fileInfo.FullName);
 
-            Console.WriteLine("Loading data");
-            //List<DrugDataSet> drugDataSets = csvParser.ReadFromFile(file, Encoding.ASCII).Select(a => a.Result).ToList();
-
-            Console.WriteLine("Please enter your drug!");
-            List<DrugDataSet> usedDrugs = new List<DrugDataSet>();
+            Console.WriteLine("Please enter your drug! (Be patient!)");
+            List<Drug> usedDrugs = new List<Drug>();
 
             //user inputs used drugs
             while (true)
@@ -45,25 +56,27 @@ namespace ConsoleDDI
                     break;
                 }
 
-                DrugDataSet? drugDataSet = drugInteractionService.FindDrug(line);
+                Drug drug = drugInteractionService.FindDrug(line);
 
-                if (drugDataSet == null)
+                if (drug == null)
                 {
-                    Console.WriteLine("Drug not found, try a new one or abort by pressing enter.");
+                    Console.WriteLine($"Drug \"{line}\" not found or too many results, try a new one or abort by pressing enter.");
                 }
                 else
                 {
-                    if (line == drugDataSet.Object)
+                    if (line == drug.Name)
                     {
-                        usedDrugs.Add(drugDataSet);
+                        usedDrugs.Add(drug);
+                        Console.WriteLine("Enter the next drug or Press Enter to finish. (Be patient!)");
                     }
                     else
                     {
-                        Console.WriteLine($"Did you mean {drugDataSet.Object}? [y/n]");
+                        Console.WriteLine($"Did you mean {drug.Name}? [y/n]");
                         string yes = Console.ReadLine();
                         if ("y" == yes)
                         {
-                            usedDrugs.Add(drugDataSet);
+                            usedDrugs.Add(drug);
+                            Console.WriteLine("Enter the next drug or Press Enter to Finish. (Be patient!)");
                         }
                     }
 
@@ -71,15 +84,18 @@ namespace ConsoleDDI
             }
             Console.WriteLine("Drug Drug interaction check");
 
-            var warnings = drugInteractionService.AreDrugsInteracting(usedDrugs);
+            var taskWarnings = drugInteractionService.AreDrugsInteractingAsync(usedDrugs);
 
+            while (!taskWarnings.IsCompleted)
+            {
+                Console.Write(".");
+            }
+            Console.WriteLine("");
             //check drug interactions
-            foreach (var warning in warnings)
+            foreach (var warning in taskWarnings.Result)
             {
                 Console.WriteLine(warning);
-
             }
-
         }
     }
 }
