@@ -144,6 +144,9 @@ Unter ""Medikament hinzufügen" ein weiterer Button mit "Medikamenten Wechselwir
 
 ![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Start.png)
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/overview.jpg)
+
+
 ### 3.2.2 Medikamentenauflistung (Startscreen)/Medikamentendetails
 
 Tappt man auf ein Medikament aus Screen 2.2.1 kommt man auf diesen Screen. Hier kann man alle weiteren Details zum Medikament eingeben.
@@ -161,11 +164,17 @@ Alarm(e) festlegen für Medikament
 
 Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätzlich gibt es zwei Buttons mit + und - um festzulegen, ob man Medikament eingenommen hat. Siehe Anforderung 2.1.6 
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/take-pill.jpg)
+
 ### 3.2.5 Medikamentenauflistung (Startscreen)/Medikament hinzufügen
 
 Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinweis für "Wechselwirkung" dargestellt sein; mögliche Alternativen;
 
 ![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/add-drug.png)
+
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/add-medicine2.jpg)
+
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/add-medicine3.jpg)
 
 
 ## Requirements
