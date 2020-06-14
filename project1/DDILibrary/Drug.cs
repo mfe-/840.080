@@ -13,6 +13,7 @@ namespace DDILibrary
         public Drug()
         {
             Precipitant = new List<Drug>();
+            Taken = new List<DateTime>();
         }
         private String _DrugId;
         [DataMember]
@@ -51,6 +52,14 @@ namespace DDILibrary
         //    get { return _Severity; }
         //    set { SetProperty(ref _Severity, value, nameof(Severity)); }
         //}
+
+        [DataMember]
+        private IList<DateTime> _Taken;
+        public IList<DateTime> Taken
+        {
+            get { return _Taken; }
+            set { SetProperty(ref _Taken, value, nameof(Taken)); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

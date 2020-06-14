@@ -61,10 +61,10 @@ namespace DDIApp
                         byte[] data = Encoding.UTF8.GetBytes(xml);
                         stream.Write(data, 0, data.Length);
                         stream.Position = 0;
-                        DataContractSerializer deserializer = new DataContractSerializer(typeof(ObservableCollection<Drug>));
+                        DataContractSerializer deserializer = new DataContractSerializer(typeof(List<Drug>));
                         object drugs = deserializer.ReadObject(stream);
 
-                        if (drugs is ObservableCollection<Drug> d)
+                        if (drugs is List<Drug> d)
                         {
                             Drugs = d;
                         }
@@ -81,7 +81,7 @@ namespace DDIApp
             string serializedXml;
             using (MemoryStream memStm = new MemoryStream())
             {
-                var serializer = new DataContractSerializer(typeof(ObservableCollection<Drug>));
+                var serializer = new DataContractSerializer(typeof(List<Drug>));
                 serializer.WriteObject(memStm, Drugs);
 
                 memStm.Seek(0, SeekOrigin.Begin);

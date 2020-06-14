@@ -5,9 +5,12 @@
              Title="{Binding Title,Mode=TwoWay}" Padding="0, 0, 0, 20 ">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Take some medicine"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Take some medicine"  />
+            <Picker ItemsSource="{Binding Path=DrugList}" SelectedItem="{Binding Path=SelectedDrug,Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Path=Name}">
+            </Picker>
+            <Button Text="Take selected Drug" Command="{Binding Path=TakePillCommand,Mode=TwoWay}" 
+                    CommandParameter="{Binding Path=SelectedDrug,Mode=TwoWay}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

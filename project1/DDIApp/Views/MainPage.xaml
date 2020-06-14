@@ -40,8 +40,8 @@
                         Command="{Binding Path=NavigateToCommand}" CommandParameter="TakePillPageViewModel" />
                 <Button Text="Add Medicine to my list" HorizontalOptions="FillAndExpand" 
                         Command="{Binding Path=NavigateToCommand}" CommandParameter="AddMedicinePageViewModel" />
-                <Button Text="Check Drug Interaction" HorizontalOptions="FillAndExpand" 
-                        Command="{Binding Path=NavigateToCommand}" CommandParameter="CheckDrugInteractionPageViewModel" />
+                <!--<Button Text="Check Drug Interaction" HorizontalOptions="FillAndExpand" 
+                        Command="{Binding Path=NavigateToCommand}" CommandParameter="CheckDrugInteractionPageViewModel" />-->
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
