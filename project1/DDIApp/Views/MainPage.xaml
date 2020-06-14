@@ -38,7 +38,7 @@
                 <!-- bottom controls -->
                 <Button Text="Take Pill" HorizontalOptions="FillAndExpand" 
                         Command="{Binding Path=NavigateToCommand}" CommandParameter="TakePillPageViewModel" />
-                <Button Text="Add Medicine" HorizontalOptions="FillAndExpand" 
+                <Button Text="Add Medicine to my list" HorizontalOptions="FillAndExpand" 
                         Command="{Binding Path=NavigateToCommand}" CommandParameter="AddMedicinePageViewModel" />
                 <Button Text="Check Drug Interaction" HorizontalOptions="FillAndExpand" 
                         Command="{Binding Path=NavigateToCommand}" CommandParameter="CheckDrugInteractionPageViewModel" />

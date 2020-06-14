@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,19 @@ namespace DDIApp.ViewModels
     public class MainPageViewModel : ViewModelBase
     {
         private readonly DrugService _drugService;
-        public MainPageViewModel(INavigationService navigationService, DrugService drugService) : base(navigationService)
+        private readonly IDialogService _dialogService;
+
+        public MainPageViewModel(
+            INavigationService navigationService,
+            DrugService drugService,
+            IDialogService dialogService)
+            : base(navigationService)
         {
             Title = "Medicine Overview";
             NavigateToCommand = new DelegateCommand<string>(OnNavigationToCommand);
             NavigateToDrugCommand = new DelegateCommand<Drug>(OnNavigationToCommand);
             _drugService = drugService;
+            _dialogService = dialogService;
             _Drugs = new List<Drug>();
         }
 

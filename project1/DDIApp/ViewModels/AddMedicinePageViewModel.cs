@@ -8,6 +8,7 @@ using System.Windows.Input;
 using DDILibrary;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 using Prism.Services.Dialogs;
 
 namespace DDIApp.ViewModels
@@ -16,16 +17,19 @@ namespace DDIApp.ViewModels
     {
         private readonly DrugInteractionService _drugInteractionService;
         private readonly IDialogService _dialogService;
+        private readonly IPageDialogService _pageDialogService;
 
         public AddMedicinePageViewModel(
             INavigationService navigationService,
             DrugService drugService,
             DrugInteractionService drugInteractionService,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IPageDialogService pageDialogService)
             : base(navigationService)
         {
             _drugInteractionService = drugInteractionService;
             _dialogService = dialogService;
+            _pageDialogService = pageDialogService;
             Title = "Add Medicine";
             DrugService = drugService;
             AddMedicineCommand = new DelegateCommand(OnAddMedicineCommand);
@@ -161,7 +165,9 @@ namespace DDIApp.ViewModels
             }
             catch (Exception e)
             {
-
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                _pageDialogService.DisplayAlertAsync(nameof(Exception), e.Message, "Ok");
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             }
             finally
             {
@@ -194,7 +200,7 @@ namespace DDIApp.ViewModels
                 IsOnAddMedicineCommandProcessing = true;
                 StopRefreshDrugSuggestion();
                 Warnings = await GetWarningsAsync();
-                if (CanAddMedicine && SelectedDrug != null)
+                if (CanAddMedicine)
                 {
                     DrugService.AddDrug(SelectedDrug);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -203,7 +209,24 @@ namespace DDIApp.ViewModels
                 }
                 else
                 {
-                    _dialogService.ShowDialog("asdsafd");
+                    var parameters = new DialogParameters
+                    {
+                        { "Warnings", Warnings },
+                    };
+
+                    Action<IDialogResult> action = (a) =>
+                    {
+                        var u = a.Parameters.GetValue<bool>("Result");
+                        if (u)
+                        {
+                            DrugService.AddDrug(SelectedDrug);
+                        }
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                        NavigationService.NavigateAsync(nameof(MainPageViewModel));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+                    };
+                    _dialogService.ShowDialog(nameof(DDIWarningViewViewModel), parameters, action);
                 }
             }
             catch (Exception e)

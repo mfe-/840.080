@@ -1,3 +1,4 @@
+using DDIApp.Dialog;
 using DDIApp.ViewModels;
 using DDIApp.Views;
 using DDILibrary;
@@ -44,6 +45,8 @@ namespace DDIApp
             containerRegistry.RegisterForNavigation<AddMedicinePage, AddMedicinePageViewModel>(nameof(AddMedicinePageViewModel));
             containerRegistry.RegisterForNavigation<TakePillPage, TakePillPageViewModel>(nameof(TakePillPageViewModel));
             containerRegistry.RegisterForNavigation<DrugPage, DrugPageViewModel>(nameof(DrugPageViewModel));
+
+            containerRegistry.RegisterDialog<DDIWarningView, DDIWarningViewViewModel>(nameof(DDIWarningViewViewModel));
 
         }
     }

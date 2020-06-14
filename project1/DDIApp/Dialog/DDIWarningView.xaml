@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DDIApp.Dialog.DDIWarningView"
+             BackgroundColor="White">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="5">
+            <Label Text="Potential drug-drug interactions" TextColor="Red" FontSize="Large" />
+            <ListView ItemsSource="{Binding Warnings}" HeightRequest="50">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding}" TextColor="Black" HorizontalOptions="StartAndExpand" />
+                                <Button Text="Ignore warnings of this kind" HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                <Button Text="Abort" Command="{Binding Path=AbortCommand}" />
+                <Button Text="I understand the risk, add drug anyway" Command="{Binding Path=AddDrugCommand}" />
+                <Button Text="Suggest alternative drugs" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

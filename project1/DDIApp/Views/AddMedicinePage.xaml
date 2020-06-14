@@ -40,11 +40,8 @@
 
             </StackLayout>
             <StackLayout IsVisible="{Binding IsStepThreeVisible, Mode=TwoWay}">
-                <Button Text="Add Drug" Command="{Binding Path=AddMedicineCommand}" >
-                </Button>
+                <Button Text="Add Drug" Command="{Binding Path=AddMedicineCommand}"  />
                 <ActivityIndicator IsRunning="{Binding Path=IsOnAddMedicineCommandProcessing,Mode=TwoWay}" />
-                <ListView Grid.ColumnSpan="2" ItemsSource="{Binding Warnings}" >
-                </ListView>
 
             </StackLayout>
         </StackLayout>
