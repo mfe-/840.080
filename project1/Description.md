@@ -1,13 +1,11 @@
 # Drug-drug interaction Tool (DDI)
 
-## 1. Drug-drug interaction Tool
+## 1. Einführung
 
 Personen, die mehrere Medikamente einnehmen, müssen auf mögliche Wechselwirkungen mit anderem Arzneimittel achten.
 Welche Medikamente zusammen eingenommen werden dürfen, kann qualifiziertes Apotheker- oder Ärztepersonal entscheiden.
  
 Für AnwenderInnen, die zu mehreren Tageszeiten Medikamente einnehmen müssen, wie z.B. ältere Personengruppen, kann eine App Überblick und Sicherheit verschaffen, wann, welche und wie viele Medikamente eingenommen wurden. Sollten die Personen ein neues Medikament einnehmen müssen, kann eine App weiters auf mögliche Wechselwirkungen hinweisen und Alternativen anbieten. Eine solche App soll in diesem Projekt als Prototyp entworfen werden.
-
-Letztendlich soll die App so konzipiert sein, dass sie lediglich zusätzliche Informationen anbietet und nicht entsprechendes Fachpersonal ersetzt. Die Zielgruppe sind somit Patientinnen. 
 
 ## 1.2 Drug-drug interaction Tool
 
@@ -15,15 +13,12 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 ### 1.3 Datenquellen für DDI 
 
-#### CSV File von 
+#### CSV File 
 
-die csv hat 1,010,178 einträge. Wenn man aber auf die einzellenn medikamente gruppiert umfasst der datensatz allerdings nur 1793 drug einträge.
+Im Paper "Toward a complete dataset of drug–drug interaction informationfrom publicly available sources" wird das Zustandekommen der in diesem Projekt verwendeten Datenquelle erläutert. Aus Insgesamt 14 unterschiedlichen Quellen wurden Datensätze zusammengesetzt. Die CSV Datei kommt auf 1,010,178 Einträge. Wenn man auf die einzelnen Medikamente gruppiert umfasst der Datensatz 1793 eindeutige Datensätze.
+Ein wesentliches Argument, welches für die Verwendung der CSV Datei gesprochen hat, waren die evidenzbasierten Rohdaten und die Möglichkeit der einfachen Verarbeitung. Die CSV Datei kann so mithilfe einer "CSV-Parser" Bibliothek relativ rasch eingelesen und verarbeitet werden. Einzig die große Datenmenge macht bei den Mobilgeräten Probleme. Die Idee war, zuerst mit der CSV Datei zu arbeiten und später falls notwendig diese in eine SQLite-Datenbank zu importieren. Notfalls wäre es immer noch möglich gewesen die Datenabfrage in einen separaten Webservice zu verschieben.
+Auffällig war, dass viele Felder der CSV Datei nicht gesetzt bzw. mit einem Standardwert versehen war, weil diese eben aus verschiedenen Datenquellen zusammengeführt wurden. So kann es sein, dass sich Gruppierte Datensätze nur in einzelnen Feldern voneinander unterschieden.
 
-Im datensatz sind auch nicht immer alle Felder gesetzt.
-je nach dem aus welcher datenquelle die daten stammen ist das feld befüllt oder nicht. 
-So fehlen z.B. größtenteils informationen zu serverity (Es gibt 12.201 Einträge in denen die Serverity gesetzt ist).
-Auch fehlt öfters der wert des feldes "label" in dem u.a. eine textuelle beschreibung zu den interaction zu finden ist. 888.265 mal ist kein wert hinterlegt worden oder anders formuliert es gibt für 121.913 einträge einen wert.
-Die Information vom feld Label und Serverity sind für die behandlung von alert fatigue wichtig. Da die werte aber so oft fehlen müssen andere mechanismen angewand werden um diesem problem zu begenen.
  
 #### Wikidata
 
@@ -44,7 +39,9 @@ WHERE
 }  
 ```
 
-### Drug Interaction API
+Wikidata ist als Datenquelle für unser Projekt sehr intressant (z.B. Query mit der nach alternativen Arzneimittel gesucht werden kann), scheidet aber aufgrund des zusätzlichen Zeitbedarfs aus (Queries schreiben, fehlende Erfahrung und somit zeitlich unberechenbarer Faktor) 
+
+#### Drug Interaction API
 Das ist auch ein freies Sofware, wo wir für unser drug-drug interaction Applikation verwenden konnten.  Es ist von Lister Hill National Center for Biomedical Communications, U.S. National Library of Medicine, 8600 Rockville Pike, Bethesda, MD 20894 und National Institutes of Health/Department of Health & Human Services bereitgestellt und diese Organisationen haben es unter Informationsfreiheit für alle Menschen zur Verfügung gestellt. Es gibt 5 Data Source Alternative, inkludiert Medikament-Interaktion. Auf die API können Clients über die Interaction RESTful-Web Service zugreifen. Ersten Montag jedes Monats wir es aktualisiert. 
 
 REST-Architekturen bestehen aus Clients und Servern. Clients initiieren Anforderungen an Server. Server verarbeiten Anforderungen und geben entsprechende Antworten zurück. Anfragen und Antworten basieren auf der Übertragung von "Darstellungen" von "Ressourcen". Eine Ressource kann im Wesentlichen jedes kohärente und aussagekräftige Konzept sein, das angesprochen werden kann. Eine Darstellung einer Ressource ist normalerweise ein Dokument, das den aktuellen oder beabsichtigten Status einer Ressource erfasst. Web Service returniert Daten in XML- oder JSON-Formaten. Mit einem Get Method kann man sehr einfach die Informationen von Server lesen.
@@ -145,14 +142,20 @@ Ganz unten am Ende der Medikamentenauflistung Button mit "Take Pill(s)"
 Unter "Take Pill(s)" einen weiteren Button mit "Medikament hinzufügen"
 Unter ""Medikament hinzufügen" ein weiterer Button mit "Medikamenten Wechselwirkungen prüfen" (Anforderung 1.1.4 DDI )
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Start.png)
+
 ### 3.2.2 Medikamentenauflistung (Startscreen)/Medikamentendetails
 
 Tappt man auf ein Medikament aus Screen 2.2.1 kommt man auf diesen Screen. Hier kann man alle weiteren Details zum Medikament eingeben.
 Wann man wieviel einnehmen muss; Alarm setzen (neuer Screen); Zusatzinformationen aus dem Internet (siehe Anforderung 1.1.2) Medikament löschen;
 
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Details.png)
+
 ### 3.2.3 Medikamentenauflistung (Startscreen)/Medikamentendetails/Alarm
 
 Alarm(e) festlegen für Medikament
+
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/Alarms.png)
 
 ### 3.2.4 Medikamentenauflistung (Startscreen)/Take Pill(s)
 
@@ -161,6 +164,8 @@ Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätz
 ### 3.2.5 Medikamentenauflistung (Startscreen)/Medikament hinzufügen
 
 Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinweis für "Wechselwirkung" dargestellt sein; mögliche Alternativen;
+
+![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/add-drug.png)
 
 
 ## Requirements
