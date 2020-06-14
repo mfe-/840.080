@@ -4,12 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="DDIApp.Views.DrugPage">
+             x:Class="DDIApp.Views.DrugPage"
+             Title="{Binding Drug.Name,Mode=TwoWay}" Padding="0, 20, 0, 20 ">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Drug.Name}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Drug.Name}" FontSize="Large" />
+            <Label Text="Some Drug information from api requests" />
+            <ListView ItemsSource="{Binding Path=Drug.Taken,Mode=TwoWay}">
+                
+            </ListView>
+            <Button Text="Remove this Drug" Command="{Binding Path=RemoveCommand}" 
+                    CommandParameter="{Binding Path=Drug}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
