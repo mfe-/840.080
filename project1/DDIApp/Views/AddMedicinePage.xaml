@@ -2,17 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DDIApp.Views.AddMedicinePage"
-             Title="{Binding Title,Mode=TwoWay}" Padding="0, 0, 0, 20 ">
+             Title="{Binding Title,Mode=TwoWay}" Padding="0, 20, 0, 20 ">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to AddMedicinePage!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-
-            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label Text="Name: " />
-                <Entry Text="{Binding Path=Drug.Name,Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
-            </StackLayout>
+            <Label Text="1. Please enter the name of the drug and select from the list of valid drugs you want to add" 
+                   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
             
-            <Button Text="Add Drug" Command="{Binding Path=AddMedicineCommand}"></Button>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                <Label Text="Name: " />
+                <Entry Text="{Binding Path=Name,Mode=TwoWay}" 
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                <ActivityIndicator IsRunning="{Binding Path=RunRefreshDrugSuggestions,Mode=TwoWay}" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding Path=IsStepTwoVisible,Mode=TwoWay}">
+                <Label Text="2. Select the drug you want to use." 
+                   VerticalOptions="Center" HorizontalOptions="CenterAndExpand" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ListView Grid.ColumnSpan="2" ItemsSource="{Binding DrugSuggestions}" 
+                              SelectedItem="{Binding Path=SelectedDrug,Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ActivityIndicator Grid.Column="1" IsRunning="{Binding Path=RunRefreshDrugSuggestions,Mode=TwoWay}" />
+                </Grid>
+
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsStepThreeVisible, Mode=TwoWay}">
+                <Button Text="Add Drug" Command="{Binding Path=AddMedicineCommand}" >
+                </Button>
+                <ActivityIndicator IsRunning="{Binding Path=IsOnAddMedicineCommandProcessing,Mode=TwoWay}" />
+                <ListView Grid.ColumnSpan="2" ItemsSource="{Binding Warnings}" >
+                </ListView>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

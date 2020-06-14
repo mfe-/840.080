@@ -160,9 +160,9 @@ namespace DDILibrary
             var query = _csvParser.ReadFromStream(Stream, Encoding.ASCII)
                     .Where(a => a?.Result?.Object != null
                         && ((a.Result.Object.ToLowerInvariant().StartsWith(name)) || a.Result.Object.ToLowerInvariant().Contains(name)))
-                            .DistinctBy(d => d.Result.Object)
                                 .Select(s => ToDrug(s.Result))
-                                    .ToArray();
+                                    .DistinctBy(d => d.DrugId)
+                                        .ToArray();
             return query;
         }
         public IEnumerable<string> AreDrugsInteracting(IEnumerable<Drug> usedDrugs)

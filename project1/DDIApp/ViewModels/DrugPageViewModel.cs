@@ -1,4 +1,4 @@
-﻿using DDIApp.Models;
+﻿using DDILibrary;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;

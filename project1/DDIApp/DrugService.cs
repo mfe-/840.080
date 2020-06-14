@@ -1,4 +1,4 @@
-﻿using DDIApp.Models;
+﻿using DDILibrary;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -12,9 +12,16 @@ namespace DDIApp
 {
     public class DrugService : BindableBase
     {
+        private string _xmlFilePath;
+
         public DrugService()
         {
             Drugs = new List<Drug>();
+            _xmlFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) }\\{DrugService.FileName}";
+        }
+        public DrugService(string xmlFilePath) : this()
+        {
+            _xmlFilePath = xmlFilePath;
         }
         public void AddDrug(Drug drug)
         {
@@ -28,16 +35,25 @@ namespace DDIApp
 
         public IList<Drug> Drugs { get; private set; }
 
+        public static string FileName = $"{nameof(Drug)}.xml";
+
         /// <summary>
         /// Load user settings which contains the user drugs
         /// </summary>
         /// <seealso cref="https://docs.microsoft.com/en-us/xamarin/essentials/preferences?tabs=android"/>
         public void LoadDrugs()
         {
-            bool hasKey = Preferences.ContainsKey(nameof(Drugs));
+            bool hasKey = new FileInfo(_xmlFilePath).Exists;
+            //bool hasKey = Preferences.ContainsKey(nameof(Drugs));
             if (hasKey)
             {
-                string xml = Preferences.Get(nameof(Drugs), "");
+                //string xml = Preferences.Get(nameof(Drugs), "");
+                string xml;
+                using (StreamReader file = new StreamReader(_xmlFilePath))
+                {
+                    xml = file.ReadToEnd();
+                }
+
                 if (!String.IsNullOrEmpty(xml))
                 {
                     using (Stream stream = new MemoryStream())
@@ -75,7 +91,11 @@ namespace DDIApp
                     serializedXml = streamReader.ReadToEnd();
                 }
             }
-            Preferences.Set(nameof(Drugs), serializedXml);
+            //Preferences.Set(nameof(Drugs), serializedXml);
+            using (StreamWriter file = new StreamWriter(_xmlFilePath))
+            {
+                file.WriteLine(serializedXml);
+            }
         }
     }
 }

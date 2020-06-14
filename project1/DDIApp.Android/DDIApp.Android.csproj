@@ -71,6 +71,7 @@
     <LinkDescription Include="LinkerSettings.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\CombinedDatasetConservativeTWOSIDES.csv" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -95,6 +96,10 @@
     <ProjectReference Include="..\DDIApp\DDIApp.csproj">
       <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
       <Name>DDIApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDILibrary\DDILibrary.csproj">
+      <Project>{6FF4F9E8-CCF0-4017-80FB-635E9A0F4265}</Project>
+      <Name>DDILibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

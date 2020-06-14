@@ -1,12 +1,15 @@
-﻿using Prism;
+﻿using DDILibrary;
+using Prism;
 using Prism.Ioc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,7 +34,12 @@ namespace DDIApp.UWP
     {
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            string filename = "CombinedDatasetConservativeTWOSIDES.csv";
+            FileInfo fileInfo = new FileInfo($"{Environment.CurrentDirectory}\\Assets\\{filename}");
             // Register any platform specific implementations
+            DrugInteractionService drugInteractionService = new DrugInteractionService(fileInfo.FullName);
+
+            containerRegistry.RegisterInstance(drugInteractionService);
         }
     }
 }
