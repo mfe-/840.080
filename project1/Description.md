@@ -15,8 +15,6 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 ### 1.3 Datenquellen für DDI 
 
-issue #2 Übersicht zu den in Frage kommenden Datenquellen und Vergleich, Erklärung für letztendliche Auswahl der Datenquelle für die Applikation: 2 P
-
 #### CSV File von 
 
 die csv hat 1,010,178 einträge. Wenn man aber auf die einzellenn medikamente gruppiert umfasst der datensatz allerdings nur 1793 drug einträge.
@@ -29,24 +27,43 @@ Die Information vom feld Label und Serverity sind für die behandlung von alert 
  
 #### Wikidata
 
-wieviel drugs hat wikidata? vorteile? nachteile?
+Wikidata ist eine der berühmteste Dataquellen. Was wir über Wikidata sagen können ist, dass Wikidata als zentraler Speicher für die strukturierten Daten seiner Wikimedia-Schwesterprojekte einschließlich Wikipedia fungiert. Es hat mehr als 46 Million Datenelemente in seiner Datenbank. Mehr als 50.000 Elemente sind nur über Medikamente. Entsprechend der Mission von Wikimedia kann jedes Daten hinzufügen, bearbeiten und kostenlos verwenden. Es kann als einen Nachteil aussehen, aber das hilft die Verbreitung der Datenbank in allen Bereichen. Zum Gegensatz dazu hat dieser Plattform mehrere Vorteile:
 
-#### andere datenquelle
+-	Es ist eine kostenlose und offene Wissensdatenbank, die sowohl von Menschen als auch von Maschinen gelesen und bearbeitet werden kann
+-	Es enthält verschiedene Datentypen (z. B. Text, Bilder, Mengen, Koordinaten, geografische Formen, Daten)
+-	Es verwendet SPARQL
 
-TODO
+Besonders der letzte Aspekt erlaubt mit einer Query nach unserer Fragen zu suchen. SPARQL ist eine Abfragesprache für RDF-Datenbanken. Im Gegensatz zu relationalen Datenbanken wie SQL sind Elemente nicht ein Teil einer Tabelle. Stattdessen werden Elemente wie ein Diagramm oder ein Netzwerk miteinander verknüpft, was schnelle Suche eines Datenelements ermöglicht. Ein Beispiel Query für die Interaktionen eines Drugs (Carbonic anhydrase 1) mit Drug code Q21173164 wäre folgendes:
 
-To assist clinicians in identifying risks associated with the combined use of two drugs, drug-interaction books and searchable drug-interaction databases are available. 
-https://www.sciencedirect.com/topics/immunology-and-microbiology/drug-drug-interaction
-+ drug-interaction databases
-+ FDA  https://www.fda.gov/media/92328/download
-+drup interaction api  https://rxnav.nlm.nih.gov/InteractionAPIs.html#
-+wikidata
-+ drug interaction solution  https://www.druginteractionsolutions.org/solutions/drug-interaction-database/
-+UK international https://www.drugs.com/uk/ 	
-Alert, Drug Interaction Databases: https://www.uspharmacist.com/article/computerized-clinical-decision-support-and-drug-interaction-databases
+```
+SELECT ?medication ?MedicationLabel 
+WHERE
+{
+ ?medication wdt:P129 wd:Q21173164.   --> Search interactions (P129) of the medication (Q21173164)
+ SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } --> prints Drug codes whit its label
+}  
+```
 
+### Drug Interaction API
+Das ist auch ein freies Sofware, wo wir für unser drug-drug interaction Applikation verwenden konnten.  Es ist von Lister Hill National Center for Biomedical Communications, U.S. National Library of Medicine, 8600 Rockville Pike, Bethesda, MD 20894 und National Institutes of Health/Department of Health & Human Services bereitgestellt und diese Organisationen haben es unter Informationsfreiheit für alle Menschen zur Verfügung gestellt. Es gibt 5 Data Source Alternative, inkludiert Medikament-Interaktion. Auf die API können Clients über die Interaction RESTful-Web Service zugreifen. Ersten Montag jedes Monats wir es aktualisiert. 
 
+REST-Architekturen bestehen aus Clients und Servern. Clients initiieren Anforderungen an Server. Server verarbeiten Anforderungen und geben entsprechende Antworten zurück. Anfragen und Antworten basieren auf der Übertragung von "Darstellungen" von "Ressourcen". Eine Ressource kann im Wesentlichen jedes kohärente und aussagekräftige Konzept sein, das angesprochen werden kann. Eine Darstellung einer Ressource ist normalerweise ein Dokument, das den aktuellen oder beabsichtigten Status einer Ressource erfasst. Web Service returniert Daten in XML- oder JSON-Formaten. Mit einem Get Method kann man sehr einfach die Informationen von Server lesen.
 
+### Andere Datenquellen
+Es gibt mehrere Datenbanken dafür zur Verfügung gestellt. Um Klinikern bei der Identifizierung von Risiken zu helfen, die mit dem kombinierten Gebrauch von zwei Medikamenten verbunden sind, stehen Arzneimittelinteraktionsbücher und durchsuchbare Datenbanken für Arzneimittelinteraktionen zur Verfügung.[1] 
+
+Einige sind folgendes:
+-	FDA [2]
+-	Drug Interaction Solution [3]
+-	UK international [4]	
+-	Alert, Drug Interaction Databases [5]
+
+Quellen:
+[1] https://www.sciencedirect.com/topics/immunology-and-microbiology/drug-drug-interaction
+[2] https://www.fda.gov/media/92328/download
+[3] https://www.druginteractionsolutions.org/solutions/drug-interaction-database/
+[4] https://www.drugs.com/uk/ 
+[5] https://www.uspharmacist.com/article/computerized-clinical-decision-support-and-drug-interaction-databases
 
 ## 1.4 DDI Kriterien
 
