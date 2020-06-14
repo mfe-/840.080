@@ -13,7 +13,7 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 ### 1.3 Datenquellen für DDI 
 
-#### CSV File von 
+#### CSV File 
 
 Im Paper "Toward a complete dataset of drug–drug interaction informationfrom publicly available sources" wird das Zustandekommen der in diesem Projekt verwendeten Datenquelle erläutert. Aus Insgesamt 14 unterschiedlichen Quellen wurden Datensätze zusammengesetzt. Die CSV Datei kommt auf 1,010,178 Einträge. Wenn man auf die einzelnen Medikamente gruppiert umfasst der Datensatz 1793 eindeutige Datensätze.
 Ein wesentliches Argument, welches für die Verwendung der CSV Datei gesprochen hat, waren die evidenzbasierten Rohdaten und die Möglichkeit der einfachen Verarbeitung. Die CSV Datei kann so mithilfe einer "CSV-Parser" Bibliothek relativ rasch eingelesen und verarbeitet werden. Einzig die große Datenmenge macht bei den Mobilgeräten Probleme. Die Idee war, zuerst mit der CSV Datei zu arbeiten und später falls notwendig diese in eine SQLite-Datenbank zu importieren. Notfalls wäre es immer noch möglich gewesen die Datenabfrage in einen separaten Webservice zu verschieben.
@@ -39,7 +39,9 @@ WHERE
 }  
 ```
 
-### Drug Interaction API
+Wikidata ist als Datenquelle für unser Projekt sehr intressant (z.B. Query mit der nach alternativen Arzneimittel gesucht werden kann), scheidet aber aufgrund des zusätzlichen Zeitbedarfs aus (Queries schreiben, fehlende Erfahrung und somit zeitlich unberechenbarer Faktor) 
+
+#### Drug Interaction API
 Das ist auch ein freies Sofware, wo wir für unser drug-drug interaction Applikation verwenden konnten.  Es ist von Lister Hill National Center for Biomedical Communications, U.S. National Library of Medicine, 8600 Rockville Pike, Bethesda, MD 20894 und National Institutes of Health/Department of Health & Human Services bereitgestellt und diese Organisationen haben es unter Informationsfreiheit für alle Menschen zur Verfügung gestellt. Es gibt 5 Data Source Alternative, inkludiert Medikament-Interaktion. Auf die API können Clients über die Interaction RESTful-Web Service zugreifen. Ersten Montag jedes Monats wir es aktualisiert. 
 
 REST-Architekturen bestehen aus Clients und Servern. Clients initiieren Anforderungen an Server. Server verarbeiten Anforderungen und geben entsprechende Antworten zurück. Anfragen und Antworten basieren auf der Übertragung von "Darstellungen" von "Ressourcen". Eine Ressource kann im Wesentlichen jedes kohärente und aussagekräftige Konzept sein, das angesprochen werden kann. Eine Darstellung einer Ressource ist normalerweise ein Dokument, das den aktuellen oder beabsichtigten Status einer Ressource erfasst. Web Service returniert Daten in XML- oder JSON-Formaten. Mit einem Get Method kann man sehr einfach die Informationen von Server lesen.
