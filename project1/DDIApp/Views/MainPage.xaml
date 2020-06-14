@@ -13,7 +13,7 @@
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="5, 1, 0, 0 ">
             <StackLayout Orientation="Horizontal" VerticalOptions="Start">
                 <!-- top controls -->
-                <Label Text="Welcome to Xamarin Forms and Prism!" />
+                
             </StackLayout>
             <StackLayout VerticalOptions="CenterAndExpand">
                 <!-- middle controls -->
@@ -21,7 +21,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout>
+                                <StackLayout Margin="5">
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer 
                                             Command="{Binding Path=BindingContext.NavigateToDrugCommand,Source={x:Reference mainPage}}" 
