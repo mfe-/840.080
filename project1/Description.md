@@ -17,6 +17,22 @@ Abgesehen von der Protokollierung der Medikamenteneinnahme soll die App beim Hin
 
 issue #2 Übersicht zu den in Frage kommenden Datenquellen und Vergleich, Erklärung für letztendliche Auswahl der Datenquelle für die Applikation: 2 P
 
+#### CSV File von 
+
+die csv hat 1,010,178 einträge. Wenn man aber auf die einzellenn medikamente gruppiert umfasst der datensatz allerdings nur 1793 drug einträge.
+
+Im datensatz sind auch nicht immer alle Felder gesetzt.
+je nach dem aus welcher datenquelle die daten stammen ist das feld befüllt oder nicht. 
+So fehlen z.B. größtenteils informationen zu serverity (Es gibt 12.201 Einträge in denen die Serverity gesetzt ist).
+Auch fehlt öfters der wert des feldes "label" in dem u.a. eine textuelle beschreibung zu den interaction zu finden ist. 888.265 mal ist kein wert hinterlegt worden oder anders formuliert es gibt für 121.913 einträge einen wert.
+Die Information vom feld Label und Serverity sind für die behandlung von alert fatigue wichtig. Da die werte aber so oft fehlen müssen andere mechanismen angewand werden um diesem problem zu begenen.
+ 
+#### Wikidata
+
+wieviel drugs hat wikidata? vorteile? nachteile?
+
+#### andere datenquelle
+
 TODO
 
 To assist clinicians in identifying risks associated with the combined use of two drugs, drug-interaction books and searchable drug-interaction databases are available. 
