@@ -92,7 +92,7 @@ Da Hauptaugenmerkmal ein DDI Prototyp ist, wurden die Anforderungen entsprechend
 |---|---|---|---|
 | 2.1.1 | Medikamente auflisten | Middle  |  High |   
 | 2.1.2   | Medikamenteninformationen aufrufen  | Middle  |  Middle |   
-| 2.1.3  | Medikament hinzufügen (DDI Check)  | Middle  | Middle  |   
+| 2.1.3  | Medikament hinzufügen (DDI Check)  | High  | Middle  |   
 | 2.1.3.1 | Medikament hinzufügen mittels OCR  | Super Low  |  Low |   
 | 2.1.3.2  | Medikament entfernen  | Middle | Middle  |   
 | 2.1.4  | Alarm  | Super Low  |   Low|   
