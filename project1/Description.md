@@ -35,12 +35,14 @@ Wikidata ist eine der berühmteste Dataquellen. Was wir über Wikidata sagen kö
 
 Besonders der letzte Aspekt erlaubt mit einer Query nach unserer Fragen zu suchen. SPARQL ist eine Abfragesprache für RDF-Datenbanken. Im Gegensatz zu relationalen Datenbanken wie SQL sind Elemente nicht ein Teil einer Tabelle. Stattdessen werden Elemente wie ein Diagramm oder ein Netzwerk miteinander verknüpft, was schnelle Suche eins Elements ermöglicht. Ein Beispiel Query für die Interaktionen eines Drugs (Carbonic anhydrase 1) mit Drug code Q21173164:
 
+```
 SELECT ?medication ?MedicationLabel 
 WHERE
 {
   ?medication wdt:P129 wd:Q21173164.   Suche Interaktionen der Medikament
  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }  print Drugs code mit ihrem Label
 }  
+```
 
 ### Drug Interaction API
 Das ist auch ein freies Sofware, wo wir für unser drug-drug interaction Applikation verwenden konnten.  Es ist von Lister Hill National Center for Biomedical Communications, U.S. National Library of Medicine, 8600 Rockville Pike, Bethesda, MD 20894 und National Institutes of Health/Department of Health & Human Services bereitgestellt und diese Organisationen haben es unter Informationsfreiheit für alle Menschen zur Verfügung gestellt. Es gibt 5 Data Source Alternative, inkludiert Medikament-Interaktion. Auf die API können Clients über die Interaction RESTful-Web Service zugreifen. Ersten Montag jedes Monats wir es aktualisiert. 
@@ -53,8 +55,8 @@ Es gibt mehrere Datenbanken dafür zur Verfügung gestellt. Um Klinikern bei der
 Einige sind folgendes:
 -	FDA [2]
 -	Drug Interaction Solution [3]
--	UK international[4]	
--	Alert, Drug Interaction Databases[5]
+-	UK international [4]	
+-	Alert, Drug Interaction Databases [5]
 
 Quellen:
 [1] https://www.sciencedirect.com/topics/immunology-and-microbiology/drug-drug-interaction
