@@ -88,15 +88,14 @@ Am besten wäre das DDI-Tool in allen Plattformen verfügbar, wie zum Beispiel a
 
 Da Hauptaugenmerkmal ein DDI Prototyp ist, wurden die Anforderungen entsprechend priorisiert.
 
-| Nr.  | Bezeichnung | Prio Martin  | Prio Eylül    |   |
-|---|---|---|---|---|
-| 1.1.1 | Medikamente auflisten | Middle  |  High |   |
-| 1.1.2  | Medikamenteninformationen aufrufen  | Middle  |  Middle |   |
-| 1.1.3  | Medikament hinzufügen  | Middle  | Middle  | Middle  |
-| 1.1.3.1 | Medikament hinzufügen mittels OCR  | Super Low  |  Low |   |
-| 1.1.3.2  | Medikament entfernen  | | Middle  | Middle  |
-| 1.1.4  | Alarm  | Super Low  |   Low|   |
-| 1.1.5  | DDI Check  | Super High  |  High |   |
+| Nr.  | Bezeichnung | Prio Martin  | Prio Eylül    |   
+|---|---|---|---|
+| 2.1.1 | Medikamente auflisten | Middle  |  High |   
+| 2.1.2   | Medikamenteninformationen aufrufen  | Middle  |  Middle |   
+| 2.1.3  | Medikament hinzufügen (DDI Check)  | High  | Middle  |   
+| 2.1.3.1 | Medikament hinzufügen mittels OCR  | Super Low  |  Low |   
+| 2.1.3.2  | Medikament entfernen  | Middle | Middle  |   
+| 2.1.4  | Alarm  | Super Low  |   Low|   
 
 ### 2.1.1 Medikamente auflisten
 
@@ -111,18 +110,12 @@ Anfrage an http://bio2rdf.org/drugbank:DB00683 Service und Informationen zum Arz
 
 ### 2.1.3 Medikament hinzufügen
 
-Beim Hinzufügen eines Medikaments wird dieses in die "Medikamentenauflistung" (1.1.1) hinzugefügt. Dabei werden die Stammdaten eingegeben, (Name, Wirkstoff) und wann das Medikament eingenommen werden soll.
+Beim Hinzufügen eines Medikaments wird dieses in die "Medikamentenauflistung" (2.1.1) hinzugefügt. Dabei werden die Stammdaten eingegeben, (Name, Wirkstoff) und wann das Medikament eingenommen werden soll.
 Vor dem Hinzufügen wird überprüft, ob es Wechselwirkungen mit anderen eingetragenen Arzneimitteln gibt.
-Dies passiert über die CombinedDatasetConservativeTWOSIDES.csv Liste, da die Daten aus einer wissenschaftlich evidenzbasierten Arbeit stammen. Wird eine Wechselwirkung gefunden, kann nach alternativen Arzneimitteln gesucht werden. Diese können z.B. über Wikidata mit SPARQL gesucht werden. Können keine Alternativen gefunden werden, muss eine Warnung an den Benutzer ausgegeben werden. 
-Mittels override kann dennoch das Medikament zur Auflistung hinzugefügt werden.
 
 ### 2.1.4 Alarm 
 
 Alarm als Hinweis, dass ein Medikament eingenommen werden soll. Der Alarm kann bei den Medikamentendetails hinzugefügt werden.
-
-### 2.1.5 DDI 
-
-Soll die Möglichkeit bieten manuell Medikamente auf mögliche Wechselwirkung zu testen, ohne diese in die Medikamentenliste aufzunehmen
 
 ### 2.1.6 Medikamenteneinahme Protokollieren
 
@@ -137,7 +130,7 @@ Unter ""Medikament hinzufügen" ein weiterer Button mit "Medikamenten Wechselwir
 
 ### 3.2.2 Medikamentenauflistung (Startscreen)/Medikamentendetails
 
-Tappt man auf ein Medikament aus Screen 1.2.1 kommt man auf diesen Screen. Hier kann man alle weiteren Details zum Medikament eingeben.
+Tappt man auf ein Medikament aus Screen 2.2.1 kommt man auf diesen Screen. Hier kann man alle weiteren Details zum Medikament eingeben.
 Wann man wieviel einnehmen muss; Alarm setzen (neuer Screen); Zusatzinformationen aus dem Internet (siehe Anforderung 1.1.2) Medikament löschen;
 
 ### 3.2.3 Medikamentenauflistung (Startscreen)/Medikamentendetails/Alarm
@@ -146,15 +139,12 @@ Alarm(e) festlegen für Medikament
 
 ### 3.2.4 Medikamentenauflistung (Startscreen)/Take Pill(s)
 
-Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätzlich gibt es zwei Buttons mit + und - um festzulegen, ob man Medikament eingenommen hat. Siehe Anforderung 1.1.6 
+Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätzlich gibt es zwei Buttons mit + und - um festzulegen, ob man Medikament eingenommen hat. Siehe Anforderung 2.1.6 
 
 ### 3.2.5 Medikamentenauflistung (Startscreen)/Medikament hinzufügen
 
 Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinweis für "Wechselwirkung" dargestellt sein; mögliche Alternativen;
 
-### 3.2.6 Medikamentenauflistung (Startscreen)/DDI
-
-Wenn man auf den Button "Medikamenten Wechselwirkungen prüfen" klickt, gelangt man hierher. Liste bei den Medikamenten eingegeben werden können. Dann ein Button mit Prüfen oder so, der dann den DDI check durchführt
 
 ## Requirements
 
