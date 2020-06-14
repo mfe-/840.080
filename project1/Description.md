@@ -167,6 +167,7 @@ Zeigt Medikamente an, die heute eingenommen werden müssen (Listenform). Zusätz
 ### 3.2.5 Medikamentenauflistung (Startscreen)/Medikament hinzufügen
 
 Besteht hauptsächlich aus Eingabeelementen. Hier sollte auch gesondert der Hinweis für "Wechselwirkung" dargestellt sein; mögliche Alternativen;
+
 ![alt text](https://raw.githubusercontent.com/mfe-/840.080/master/project1/Mockups/add-drug.png)
 
 
