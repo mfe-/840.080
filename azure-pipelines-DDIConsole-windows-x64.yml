@@ -26,7 +26,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    arguments: '$(build.artifactstagingdirectory)\project1\DDIConsole\DDIConsole.csproj -r win-x64 -c debug --no-restore /p:PublishSingleFile=true -o $(build.artifactstagingdirectory)'
+    arguments: 'project1/DDIConsole/DDIConsole.csproj -r win-x64 -c debug --no-restore /p:PublishSingleFile=true -o $(build.artifactstagingdirectory)'
     workingDirectory: 'project1/DDIConsole'
 
 - task: PublishBuildArtifacts@1
