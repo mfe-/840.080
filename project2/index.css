@@ -1,10 +1,14 @@
 html {
-    background-color: rosybrown;
+    background-color: coral;
     font-family: 'Roboto';
     color: black;
 }
 
 h1 {
+    text-align: center;
+}
+
+h2 {
     text-align: center;
 }
 h4 {
@@ -24,4 +28,7 @@ a {
     color: black;
 }
 
+.logodiv{
+    background-color: lightsalmon;
+}
 
