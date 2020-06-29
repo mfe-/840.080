@@ -1,0 +1,27 @@
+html {
+    background-color: rosybrown;
+    font-family: 'Roboto';
+    color: black;
+}
+
+h1 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+
+.ah4{
+    font-size: 20px;
+}
+
+a {
+    font-size: 33px;
+    text-decoration: none;
+    color: #ffffff;
+}
+.gcse-search{
+    color: black;
+}
+
+
